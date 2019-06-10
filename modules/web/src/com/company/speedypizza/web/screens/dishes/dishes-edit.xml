@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.speedypizza.web.screens.dishes">
+    <data>
+        <instance id="dishesDc"
+                  class="com.company.speedypizza.entity.Dishes"
+                  view="dishes-view">
+            <loader/>
+            <collection id="dishIngridientsDc" property="dishIngridients"/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="dishesDc">
+            <column width="250px">
+                <textField id="priceField" property="price"/>
+                <pickerField id="dishTypeField" property="dishType">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <textField id="dishNameField" property="dishName"/>
+                <textField id="dishCountPerOrder" property="dishCountPerOrder"/>
+            </column>
+        </form>
+        <groupBox id="dishIngridientsBox" caption="msg://com.company.speedypizza.entity/Dishes.dishIngridients">
+            <table id="dishIngridientsTable" dataContainer="dishIngridientsDc" width="100%" height="200px">
+                <actions>
+                    <action id="add" type="add"/>
+                    <action id="exclude" type="exclude"/>
+                </actions>
+                <columns>
+                    <column id="ingredientType"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="dishIngridientsTable.add"/>
+                    <button action="dishIngridientsTable.exclude"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

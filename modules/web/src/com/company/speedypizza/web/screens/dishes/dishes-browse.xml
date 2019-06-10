@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="dishesesTable"
+        messagesPack="com.company.speedypizza.web.screens.dishes">
+    <data readOnly="true">
+        <collection id="dishesesDc"
+                    class="com.company.speedypizza.entity.Dishes"
+                    view="dishes-view">
+            <loader id="dishesesDl">
+                <query>
+                    <![CDATA[select e from speedypizza_Dishes e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="dishesesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="dishesesTable"
+                dataLoader="dishesesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="dishesesTable"
+                    width="100%"
+                    dataContainer="dishesesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="dishName"/>
+                <column id="dishType"/>
+                <column id="price"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="dishesesTable.create"/>
+                <button id="editBtn" action="dishesesTable.edit"/>
+                <button id="removeBtn" action="dishesesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

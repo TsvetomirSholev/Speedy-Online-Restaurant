@@ -1,0 +1,3 @@
+alter table SPEEDYPIZZA_DISHES alter column ORDER_ID rename to ORDER_ID__U95316 ^
+drop index IDX_SPEEDYPIZZA_DISHES_ON_ORDER ;
+alter table SPEEDYPIZZA_DISHES drop constraint FK_SPEEDYPIZZA_DISHES_ON_ORDER ;

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="speedypizza_Dishes" name="dishes-view" extends="_local">
+        <property name="dishType" view="_minimal"/>
+        <property name="dishIngridients" view="_minimal"/>
+    </view>
+    <view entity="speedypizza_Ingredients" name="ingredients-view" extends="_local">
+        <property name="dishTypes" view="_minimal"/>
+    </view>
+    <view entity="speedypizza_Order" name="order-view" extends="_local">
+        <property name="customer" view="_minimal">
+            <property name="isRegistered"/>
+            <property name="orderedTimesCount"/>
+            <property name="customerCurrentDiscount"/>
+        </property>
+        <property name="dishesOrdered" view="_minimal">
+            <property name="price"/>
+            <property name="dishCountPerOrder"/>
+        </property>
+    </view>
+    <view entity="speedypizza_Customer" name="customer-view" extends="_local"/>
+</views>

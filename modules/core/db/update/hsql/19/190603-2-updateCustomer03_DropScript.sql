@@ -1,0 +1,1 @@
+alter table SPEEDYPIZZA_CUSTOMER drop column CUSTOMER_CURRENT_DISCOUNT__U44051 cascade ;

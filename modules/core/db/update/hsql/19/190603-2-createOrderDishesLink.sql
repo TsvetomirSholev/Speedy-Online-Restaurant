@@ -1,0 +1,2 @@
+alter table SPEEDYPIZZA_ORDER_DISHES_LINK add constraint FK_ORDDIS_ON_DISHES foreign key (DISHES_ID) references SPEEDYPIZZA_DISHES(ID);
+alter table SPEEDYPIZZA_ORDER_DISHES_LINK add constraint FK_ORDDIS_ON_ORDER foreign key (ORDER_ID) references SPEEDYPIZZA_ORDER(ID);

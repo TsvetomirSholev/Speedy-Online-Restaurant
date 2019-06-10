@@ -1,0 +1,1 @@
+alter table SPEEDYPIZZA_ORDER alter column DISH_COUNT_PER_TYPE rename to DISH_COUNT_PER_TYPE__U13928 ^

@@ -1,0 +1,2 @@
+alter table SPEEDYPIZZA_CUSTOMER alter column CUSTOMER_PHONE rename to CUSTOMER_PHONE__U90634 ^
+alter table SPEEDYPIZZA_CUSTOMER add column CUSTOMER_PHONE varchar(255) ;

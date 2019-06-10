@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.speedypizza.web.screens.order">
+    <data>
+        <instance id="orderDc"
+                  class="com.company.speedypizza.entity.Order"
+                  view="order-view">
+            <loader/>
+            <collection id="dishesOrderedDc" property="dishesOrdered"/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="orderDc">
+            <column width="250px">
+                <dateField id="orderTimeField" property="orderTime" editable="false"/>
+                <dateField id="deliveryTimeField" property="deliveryTime" editable="false"/>
+                <pickerField id="pickCustomer" property="customer">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <textField id="clientNameField" property="clientName"/>
+                <textField id="clientPhoneField" property="clientPhone"/>
+                <textField id="clientOrderAddressField" property="clientOrderAddress"/>
+                <textField id="specialDeliveryInstructions" property="specialDeliveryInstructions"/>
+                <textField id="orderCurrentDicountField" property="orderCurrentDicount" editable="false"/>
+                <textField id="totalDishCount" property="totalDishCount" editable="false"/>
+                <textField id="totalPriceField" property="totalPrice" editable="false"/>
+            </column>
+        </form>
+        <groupBox id="dishesOrderedBox" caption="msg://com.company.speedypizza.entity/Order.dishesOrdered">
+            <table id="dishesOrderedTable" dataContainer="dishesOrderedDc" width="100%" height="200px">
+                <actions>
+                    <action id="add" type="add"/>
+                    <action id="exclude" type="exclude"/>
+                </actions>
+                <columns>
+                    <column id="dishName"/>
+                    <column id="price"/>
+                    <column id="dishCountPerOrder"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="dishesOrderedTable.add"/>
+                    <button action="dishesOrderedTable.exclude"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
