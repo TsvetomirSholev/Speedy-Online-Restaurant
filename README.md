@@ -2,4 +2,4 @@
 
 Done using
 IntelliJ IDEA Ultimate https://www.jetbrains.com/idea/
-And a plugin for CUBA https://www.cuba-platform.com/
+And the CUBA platform https://www.cuba-platform.com/
